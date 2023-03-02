@@ -6,6 +6,7 @@ type User struct {
 	Age  int
 }
 
+// CreatUser is used to create user
 func CreateUser(name string, age int) *User {
 	return &User{
 		Name: name,
