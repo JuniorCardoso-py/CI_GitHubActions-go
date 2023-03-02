@@ -9,9 +9,9 @@ on:
 strategy:
   matrix:
     go: ['1.14', '1.15']
-    application: ['check-application-main:', 'check-application-develop:']
+    application: ['check-application-main', 'check-application-develop']
 jobs:
-  ${{matrix.application}}
+  ${{matrix.application}}:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
