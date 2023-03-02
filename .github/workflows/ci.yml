@@ -4,13 +4,12 @@ on:
     branches:
       - develop
       - main
-strategy:
-  matrix:
-    go: ['1.14', '1.15']
-    application: ['check-application-main', 'check-application-develop']
 jobs:
-  ${{matrix.application}}:
+  check-application:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        go: ['1.14', '1.15']
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-go@v2
