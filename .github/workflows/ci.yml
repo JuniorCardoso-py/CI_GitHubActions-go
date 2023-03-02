@@ -3,13 +3,20 @@ on:
   pull_request:
     branches:
       - develop
+  pull_request:
+    branches:
+      - main
+strategy:
+  matrix:
+    go: ['1.14', '1.15']
+    application: ['check-application-main:', 'check-application-develop:']
 jobs:
-  check-application:
+  ${{matrix.application}}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-go@v2
         with: 
-          go-version: 1.15
+          go-version: ${{matrix.go}}
       - run: go test
       - run: go run main.go
