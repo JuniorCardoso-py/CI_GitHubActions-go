@@ -35,7 +35,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: false
-          tags: juniorcardoso1506/golangCi_learn:latest
+          tags: juniorcardoso1506/golangci_learn:latest
           
       - run: go test
       - run: go run main.go
