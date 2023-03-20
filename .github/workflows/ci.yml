@@ -11,6 +11,7 @@ jobs:
     #  matrix:
     #    go: ['1.14', '1.15']
     steps:
+      #with: 
       #  go-version: ${{matrix.go}}
       - 
         name: Checkout
@@ -18,7 +19,6 @@ jobs:
       - 
         name: Setup Go environment
         uses: actions/setup-go@v3
-        with: 
 
       - 
         name: Build and push Docker images
