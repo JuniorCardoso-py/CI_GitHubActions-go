@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     #strategy:
     #  matrix:
-    #    go: ['1.14', '1.15']
+    #    go: ['1.14', '1.15'] This stage is used to test pipeline with two different versions
     steps:
       #with: 
       #  go-version: ${{matrix.go}}
@@ -33,8 +33,8 @@ jobs:
         name:  Login to Dockerfile
         uses: docker/login-action@v1
         with:
-          username: ${{ sectrets.DOCKERHUB_USERNAME }}
-          password: ${{ sectrets.DOCKERHUB_TOKEN }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
       - 
         name: Build and push
         id: docker_build
